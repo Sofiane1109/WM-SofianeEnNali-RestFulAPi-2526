@@ -89,7 +89,6 @@
 
     // Formulier tonen
     function openTicketForm(concertId, artiest, datum) {
-        // Zet concertId in hidden input
         document.getElementById("concertId").value = concertId;
 
         // Update modal titel

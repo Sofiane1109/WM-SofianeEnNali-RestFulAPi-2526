@@ -38,7 +38,6 @@
                     return;
                 }
 
-                // Bouw de tabel met scope="col" voor toegankelijkheid
                 let tabel = `
                     <table class="table table-striped table-hover align-middle">
                         <thead class="table-dark">
@@ -102,7 +101,7 @@
             });
     }
 
-    // Event delegation voor knoppen in bezoekerlijst
+    // Event voor knoppen in bezoekerslijst
     bezoekerListEl.addEventListener("click", function (e) {
         const target = e.target.closest("button");
         if (!target) return;

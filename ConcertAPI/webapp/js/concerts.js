@@ -38,7 +38,6 @@
                     return;
                 }
 
-                // Bouw de tabel met scope="col" voor toegankelijkheid
                 let tabel = `
                     <table class="table table-striped table-hover align-middle">
                         <thead class="table-dark">
@@ -114,7 +113,7 @@
             });
     }
 
-    // 🔹 Event delegation voor knoppen in concertlijst
+    // Event voor knoppen in concertlijst
     concertListEl.addEventListener("click", function (e) {
         const target = e.target.closest("button");
         if (!target) return;
@@ -139,7 +138,7 @@
         const modalEl = new bootstrap.Modal(document.getElementById("concertDetailsModal"));
         modalEl.show();
 
-        // 1️⃣ Concert ophalen
+        // Concert ophalen
         let url = baseApiAddress + "concert.php"
         opties.method = "GET";
 
@@ -171,7 +170,7 @@
             `;
                 detailsEl.innerHTML = html;
 
-                // 2️⃣ Tickets ophalen
+                // Tickets ophalen
                 let urlTickets = baseApiAddress + "ticket.php";
                 let optiesTicket = { method: "GET" }
                 fetch(urlTickets, optiesTicket)
@@ -189,7 +188,7 @@
                             return;
                         }
 
-                        // 3️⃣ Bezoekers ophalen
+                        // Bezoekers ophalen
                         let urlBezoekers = baseApiAddress + "visitor.php";
                         let optiesBezoekers = { method: "GET" }
                         fetch(urlBezoekers, optiesBezoekers)
