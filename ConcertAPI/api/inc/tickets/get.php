@@ -1,7 +1,7 @@
 <?php
 // --- "get" alle tickets  
 
-$sql = "SELECT id, bezoeker_id, concert_id, aantal, aankoop_prijs, aankoop_datum, status FROM tickets";
+$sql = "SELECT id, bezoeker_id, concert_id, aantal FROM tickets";
 
 $result = $conn->query($sql);
 

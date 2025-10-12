@@ -1,6 +1,6 @@
 <?php
 // --- "Get" alle bezoekers  
-$sql = "SELECT id, voornaam, familienaam, geboortedatum, emailadres
+$sql = "SELECT id, voornaam, familienaam, emailadres, geboortedatum
         FROM bezoekers";
 
 // geen prepared statement nodig, aangezien we geen parameters van de gebruiker verwerken.

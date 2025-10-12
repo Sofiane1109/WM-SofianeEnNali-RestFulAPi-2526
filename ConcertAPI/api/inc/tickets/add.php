@@ -1,11 +1,11 @@
 <?php
 // --- "add" een ticket  
 
-check_required_fields(["bezoeker_id","concert_id","aantal","aankoop_prijs","status"]);
+check_required_fields(["bezoeker_id","concert_id","aantal"]);
 
 if(!$stmt = $conn->prepare("
-    INSERT INTO tickets (bezoeker_id, concert_id, aantal, aankoop_prijs, status) 
-    VALUES (?, ?, ?, ?, ?)
+    INSERT INTO tickets (bezoeker_id, concert_id, aantal) 
+    VALUES (?, ?, ?)
 ")){
     die('{"error":"Prepared Statement failed on prepare",
          "errNo":' . json_encode($conn->errno) . ',
@@ -13,13 +13,11 @@ if(!$stmt = $conn->prepare("
          "status":"fail"}');
 }
 
-// bind parameters ( i = integer, i = integer, i = integer, d = double, s = string )
-if(!$stmt->bind_param("iiids",
+// bind parameters ( i = integer, i = integer, i = integer, d = double )
+if(!$stmt->bind_param("iii",
     $postvars['bezoeker_id'],
     $postvars['concert_id'],
-    $postvars['aantal'],
-    $postvars['aankoop_prijs'],
-    $postvars['status']
+    $postvars['aantal']
 )){
     die('{"error":"Prepared Statement bind failed on bind",
          "errNo":' . json_encode($conn->errno) . ',

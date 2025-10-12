@@ -14,7 +14,7 @@ if(!$stmt = $conn->prepare("
          "status":"fail"}');
 }
 
-// bind parameters ( s = string, d = double, s = string, s = string, d = double, i = integer )
+
 if(!$stmt->bind_param("ssssdi",
     htmlentities($postvars['artiest']),
     $postvars['datum'],
@@ -42,7 +42,7 @@ if($conn->affected_rows == 0) {
 $stmt->close();
 
 // laatst toegevoegde ID
-$CONCERT_ID = $conn->insert_id;
+$id = $conn->insert_id;
 
-die('{"data":"ok","message":"Record added successfully","status":200, "CONCERT_ID": ' . $CONCERT_ID . '}');
+die('{"data":"ok","message":"Record added successfully","status":200, "id": ' . $id . '}');
 ?>

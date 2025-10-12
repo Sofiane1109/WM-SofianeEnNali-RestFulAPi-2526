@@ -2,11 +2,11 @@
 // --- "update" een bezoeker  
 
 // Zijn de nodige parameters meegegeven in de request?
-check_required_fields(["id","voornaam","familienaam","geboortedatum","emailadres"]);
+check_required_fields(["id","voornaam","familienaam","emailadres", "geboortedatum"]);
 
 if(!$stmt = $conn->prepare("
     UPDATE bezoekers 
-    SET voornaam = ?, familienaam = ?, geboortedatum = ?, emailadres = ?
+    SET voornaam = ?, familienaam = ?, emailadres = ?, geboortedatum = ?
     WHERE id = ?
 ")){
     die('{"error":"Prepared Statement failed on prepare",
@@ -19,8 +19,8 @@ if(!$stmt = $conn->prepare("
 if(!$stmt->bind_param("ssssi",
     htmlentities($postvars['voornaam']),
     htmlentities($postvars['familienaam']),
-    htmlentities($postvars['geboortedatum']),
     htmlentities($postvars['emailadres']),
+    htmlentities($postvars['geboortedatum']),
     $postvars['id']
 )){
     die('{"error":"Prepared Statement bind failed on bind",

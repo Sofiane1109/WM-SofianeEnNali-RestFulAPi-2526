@@ -2,22 +2,22 @@
 // --- "add" een bezoeker  
 
 // Zijn de nodige parameters meegegeven in de request?
-check_required_fields(["voornaam", "familienaam", "geboortedatum", "emailadres"]);
+check_required_fields(["voornaam", "familienaam", "emailadres", "geboortedatum"]);
 
 // create prepared statement
-if(!$stmt = $conn->prepare("INSERT INTO bezoekers (voornaam, familienaam, geboortedatum, emailadres) VALUES (?, ?, ?, ?)")){
+if(!$stmt = $conn->prepare("INSERT INTO bezoekers (voornaam, familienaam, emailadres, geboortedatum) VALUES (?, ?, ?, ?)")){
     die('{"error":"Prepared Statement failed on prepare",
           "errNo":' . json_encode($conn->errno) . ',
           "mysqlError":' . json_encode($conn->error) . ',
           "status":"fail"}');
 }
 
-// bind parameters ( s = string | i = integer | d = double | b = blob )
+// bind parameters 
 if(!$stmt->bind_param("ssss",
     htmlentities($postvars['voornaam']),
     htmlentities($postvars['familienaam']),
-    htmlentities($postvars['geboortedatum']),
-    htmlentities($postvars['emailadres'])
+    htmlentities($postvars['emailadres']),
+    htmlentities($postvars['geboortedatum'])
 )){
     die('{"error":"Prepared Statement bind failed on bind",
           "errNo":' . json_encode($conn->errno) . ',
