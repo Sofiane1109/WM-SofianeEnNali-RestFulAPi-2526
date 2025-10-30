@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">hybrideapp</string>
+    <string name="title_activity_main">hybrideapp</string>
+    <string name="package_name">ionic.hybrideapp</string>
+    <string name="custom_url_scheme">ionic.hybrideapp</string>
+</resources>
