@@ -1,7 +1,7 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'ionic.hybrideapp',
+  appId: 'be.sofianeennali.hybrideapp',
   appName: 'hybrideapp',
   webDir: 'dist'
 };

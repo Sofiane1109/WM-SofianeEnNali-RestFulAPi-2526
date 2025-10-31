@@ -22,10 +22,14 @@ const routes = [
         path: 'tab2',
         component: () => import('@/views/BezoekerPage.vue')
       },
-      // {
-      //   path: 'tab3',
-      //   component: () => import('@/views/Tab3Page.vue')
-      // }
+      {
+        path: 'tab3',
+        component: () => import('@/views/TicketPage.vue')
+      },
+      {
+        path: 'tab4',
+        component: () => import('@/views/AboutPage.vue')
+      }
     ]
   }
 ]
